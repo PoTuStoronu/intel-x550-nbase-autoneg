@@ -1,0 +1,11 @@
+# Editor / OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*~
+*.swp
+
+# Local diagnostic results (avoid accidentally publishing identifiers)
+*.log
+logs/
