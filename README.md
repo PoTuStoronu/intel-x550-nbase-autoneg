@@ -40,7 +40,7 @@ For additional background, refer to the [Linux kernel's `ixgbe` documentation](h
 | --- | --- | --- |
 | Debian with systemd | systemd service + udev rule | **Not comprehensively tested** |
 | Ubuntu with systemd | systemd service + udev rule | **Not comprehensively tested** |
-| Proxmox VE (including 9.x) | systemd service + udev rule | **Not comprehensively tested** |
+| Proxmox VE (including 9.x) | systemd service + udev rule | **Initial functional test passed** |
 | x86 OpenWrt / ImmortalWrt | init script + network hotplug hook | **Not comprehensively tested** |
 
 Other distributions, system configurations, and network manager combinations are not covered by this project's stated scope. A compatibility claim in this document indicates an **intended target**, not a successful hardware test.
@@ -55,9 +55,26 @@ Other distributions, system configurations, and network manager combinations are
 
 The current device-ID allowlist is `8086:1563`, `8086:15d1`, `8086:15ad`, and `8086:15c8`. Not every OEM adapter or X550 variant is necessarily included or supported.
 
+## Download
+
+To download with `curl` run the following command:
+
+```sh
+curl -fL --retry 3 \
+  -o x550-nbase.sh \
+  https://raw.githubusercontent.com/PoTuStoronu/intel-x550-nbase-autoneg/main/x550-nbase.sh
+```
+
+To download with `wget` run the following command:
+
+```sh
+wget -O x550-nbase.sh \
+  https://raw.githubusercontent.com/PoTuStoronu/intel-x550-nbase-autoneg/main/x550-nbase.sh
+```
+
 ## Installation
 
-**Review the shell script before executing it as root.** Download or clone this repository onto the target machine.
+**Review the shell script before executing it as root.**
 
 Inspect the detected adapters first (read-only):
 
